@@ -1,0 +1,18 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.header nav {
+    background-color: black ;
+    
+}
+
+.header ol {
+    display: flex;
+    list-style-type: none;
+    color: white;
+}
+
+.header li {
+    padding: 1rem;
+}
