@@ -6,6 +6,8 @@
 
 <section>
     <h2>Les 5 dernières questions</h2>
+    
+     @include('posts.list', ['posts' => $posts])
 </section>
 
 @endsection

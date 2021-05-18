@@ -23,7 +23,7 @@
         <a class="nav-link" href="{{ route('home') }}">Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Questions</a>
+        <a class="nav-link" href="{{ route('posts.index') }}">Questions</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
