@@ -12,7 +12,7 @@
 <body>
     <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Debug moi</a>
+  <a class="navbar-brand" href="{{ route('home') }}">Debug moi</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,18 +25,21 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('posts.index') }}">Questions</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Connexion</a>
+      </li>
+      <!--<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Mon Compte
+          Connexion
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li>
+      </li>-->
       <li class="nav-item">
-        <a class="nav-link" href="#">Utilisateurs</a>
+        <a class="nav-link" href="#">Inscription</a>
       </li>
     </ul>
   </div>
