@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -33,7 +34,7 @@ class PostController extends Controller
         $categories = $post->categories;
         
         // Liste des commentaires du plus récent au plus ancien
-        /*$answers = $post->answers()->latest()->get();*/
+        $answers = $post->answers()->latest()->get();
         // Récupération de la liste des catégories
         /*$categories = $post->categories;*/
         
@@ -51,5 +52,28 @@ class PostController extends Controller
         return view('posts.create', [
             'categories' => $categories
             ]);
+    }
+    
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|min:3',
+            'content' => 'required|min:5|max:280',
+            'categories' => 'required'
+        ]);
+        
+        // Enregistrer le nouvel article
+        $post = new Post();
+        $post->title = $request->input('title');
+        $post->content = $request->input('content');
+        $post->slug = Str::slug($post->title);
+        $post->user_id = 1;
+        $post->save();
+        
+        // Enregistrement des catégories de l'article
+        $post->categories()->attach($request->input('categories'));
+        
+        // Redirection vers la page d'accueil
+        return redirect()->route('home');
     }
 }

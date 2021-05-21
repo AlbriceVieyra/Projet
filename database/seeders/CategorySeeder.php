@@ -25,10 +25,9 @@ class CategorySeeder extends Seeder
                 'name' => 'Développement mobile',
             ],
             [
-                'name' => 'Gestion de projet',
+                'name' => 'Gestion de projet'
             ]
             
-            ]);
+        ]);
     }
 }
-

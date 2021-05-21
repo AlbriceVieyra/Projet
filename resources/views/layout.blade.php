@@ -7,6 +7,12 @@
     <!--link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
 
 </head>
 <body>
@@ -25,23 +31,38 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ route('posts.index') }}">Questions</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Connexion</a>
-      </li>
-      <!--<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Connexion
+      
+      @auth     
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mon Compte
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ route('logout') }}">Déconnexion</a>
         </div>
-      </li>-->
-      <li class="nav-item">
-        <a class="nav-link" href="#">Inscription</a>
       </li>
+      @else
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('login') }}">Connexion</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('register') }}">Inscription</a>
+      </li>
+      @endauth
+      <li class="nav-item">
+        <a class="nav-link" href="#">Utilisateurs</a>
+    </li>
     </ul>
+    @auth
+        <span class="navbar-text">
+            {{ auth()->user()->username }}
+        </span>
+    @else
+        <span class="navbar-text">
+            Vous n'êtes pas encore connecté
+        </span>
+    @endauth
   </div>
 </nav>
 </header>

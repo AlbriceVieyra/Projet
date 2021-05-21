@@ -21,5 +21,16 @@ Route::get('/posts/create', [App\Http\Controllers\PostController::class, 'create
 
 Route::get('/posts/{slug}', [App\Http\Controllers\PostController::class, 'show'])->name('posts.show');
 
-
 Route::post('/posts', [App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
+
+Route::get('/users/register', [App\Http\Controllers\UserController::class, 'register'])->name('register');
+
+Route::post('/users', [App\Http\Controllers\UserController::class, 'signup'])->name('signup');
+
+Route::get('/users/login', [App\Http\Controllers\UserController::class, 'login'])->name('login');
+
+Route::post('/users/signin', [App\Http\Controllers\UserController::class, 'signin'])->name('signin');
+
+Route::get('/users/logout', [App\Http\Controllers\UserController::class, 'logout'])->name('logout');
+
+Route::post('/posts/{id}/answers', [App\Http\Controllers\AnswerController::class, 'store'])->name('posts.answers');

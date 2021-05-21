@@ -7,7 +7,7 @@
 <p>Vous êtes bloqué(e) et ne savez pas comment avancer ? Posez une question à la communauté !</p>
 <div><a class="btn btn-primary" href="{{ route('posts.create') }}" role="button">Poser une question</a>
 
-<a class="btn btn-success" href="{{ route('posts.index') }}" role="button">Voir toutes les réponses</a></div>
+<a class="btn btn-success" href="{{ route('posts.index') }}" role="button">Voir toutes les questions</a></div>
 
 </section>
 
